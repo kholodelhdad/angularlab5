@@ -1,0 +1,18 @@
+<div class="card text-center bg-light h-100">
+   
+    <div class="card-body">
+      <img [src]="product.image" style="width:100px; height:100px" class="card-img-top mb-3" [alt]="product.title" />
+      <a [routerLink]="['/product-details' , product.id]">
+        <h5 class="card-title">{{ product.title }}</h5>
+      </a>
+      <p class="card-text">
+        {{ product.category }}
+      </p>
+      <p [style.color]="product.rating.count>110?'green':'red'" [ngClass]="counter>0?'test1':'test2'">{{counter|count}}</p>
+      <button class="btn btn-warning" (click)="goToDetails(product.id)">
+        Go to product details
+      </button>
+      <button  class="btn btn-outline-warning ms-2" (click)="addItemToCart()">Add to cart</button>
+    </div>
+  </div>
+  

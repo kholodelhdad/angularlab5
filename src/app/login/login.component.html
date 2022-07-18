@@ -1,0 +1,58 @@
+<form class="container mt-5" #productform="ngForm" (ngSubmit)="handleSubmitForm(productform)">
+    <!-- Email input -->
+    <div class="form-outline mb-4 ">
+        <label class="form-label" for="form2Example1">Email address</label>
+      <input type="email" id="email" class="form-control" ngModel #email="ngModel" name="email"required email  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  />
+      
+      <div
+      id="emailHelp"
+      *ngIf="email.touched && email.invalid"
+      class="form-text text-danger"
+    >
+      <small *ngIf="email?.errors?.['required']"
+        >This field is required</small
+      >
+      <small *ngIf="email?.errors?.['email']"
+        >reqiured email</small
+      >
+      <small *ngIf="email?.errors?.['pattern']"
+        > required pattern email</small
+      >
+    </div>
+    </div>
+    
+
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+        <label class="form-label" for="form2Example2">Password</label>
+      <input type="password" id="pass" class="form-control"ngModel #pass="ngModel" name="pass"required password />
+      <div
+      id="passHelp"
+      *ngIf="pass.touched && pass.invalid"
+      class="form-text text-danger"
+    >
+      <small *ngIf="pass?.errors?.['required']"
+        >This field is required</small
+      >
+      
+    </div>
+    </div>
+    
+  
+    <!-- 2 column grid layout for inline styling -->
+    <div class="row mb-4">
+      <div class="col d-flex justify-content-center">
+       
+      </div>
+  
+     
+    </div>
+  
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4"[routerLink]="['']">Sign in</button>
+  
+    <!-- Register buttons -->
+     <div class="text-center">
+      <p>Not a member? <a [routerLink]="['/register']">Register</a></p> </div>
+     
+  </form>
